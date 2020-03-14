@@ -27,6 +27,8 @@ public class News {
     private String newsLink;
     @Column(name = "news_description")
     private String newsDescription;
+    @Column(name = "news_image_url")
+    private String newsImageUrl;
     @Column(name = "publish_date")
     private Date publishDate;
 }
