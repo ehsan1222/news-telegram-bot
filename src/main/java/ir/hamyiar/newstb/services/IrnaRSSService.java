@@ -6,6 +6,7 @@ import ir.hamyiar.newstb.net.NewsConnection;
 import ir.hamyiar.newstb.repository.NewsRepository;
 import ir.hamyiar.newstb.telegram.Bot;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -27,6 +28,7 @@ public class IrnaRSSService {
     private Bot bot;
 
     @PostConstruct
+    @Scheduled(cron = "0 0 */1 * * *")
     public void process() {
         // Download RSS Data from site
         String xmlRSS = NewsConnection.getXmlRSS(IRNA_URL);
@@ -45,10 +47,12 @@ public class IrnaRSSService {
                 // Store News Entity in Database
                 newsRepository.save(news);
                 // TODO: Send data to telegram channel
-                String response = bot.sendImagePostToChannel(news);
-                System.out.println(response);
+                bot.sendImagePostToChannel(news);
+            } else  {
+                System.out.println("yooooo");
             }
         }
+        System.out.println("---*-*-*-*-*-*-*-*-*");
     }
 
     public void addPreIdToNewsId(List<News> newsList) {
