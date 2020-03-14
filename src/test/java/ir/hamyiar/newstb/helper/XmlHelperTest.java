@@ -2,15 +2,10 @@ package ir.hamyiar.newstb.helper;
 
 import ir.hamyiar.newstb.dao.News;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -66,6 +61,7 @@ public class XmlHelperTest {
         actual.setNewsLink("https://www.irna.ir/news/83714160/معاون-استاندار-تهران-هر-نوع-خبری-مبنی-ب" +
                 "ر-کمبود-کالا-تکذیب-می-شود");
         actual.setNewsDescription("تهران- ایرنا- معاون امنیتی و انتظامی استاندار تهران اعلام کرد: هر نوع خبری مبنی بر کمبود کالا در فروشگاه ها و واحدهای صنفی این استان تکذیب می\u200Cشود و در این زمینه هیچ کمبودی وجود ندارد.");
+        actual.setNewsImageUrl("https://img9.irna.ir/d/r2/2019/12/21/3/156838207.jpg");
         actual.setPublishDate(new Date(1584200529000L));
 
         Assert.assertEquals(expected, actual);
