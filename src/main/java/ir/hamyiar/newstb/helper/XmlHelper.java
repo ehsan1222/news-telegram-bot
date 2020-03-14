@@ -1,6 +1,7 @@
 package ir.hamyiar.newstb.helper;
 
 import ir.hamyiar.newstb.dao.News;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+@Service
 public class XmlHelper {
 
     public List<News> parse(String xmlData) {
