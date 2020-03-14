@@ -20,7 +20,7 @@ public class Bot {
     @Value("${channel.id}")
     private String channelId;
 
-    public String sendImagePostToChannel(News news) {
+    public synchronized String sendImagePostToChannel(News news) {
 
         String photoPostUrl = "https://api.telegram.org/bot%s/sendPhoto?chat_id=%s&caption=%s&parse_mode=Markdown&photo=%s";
 
