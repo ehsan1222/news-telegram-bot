@@ -4,7 +4,7 @@ import ir.hamyiar.newstb.dao.News;
 import ir.hamyiar.newstb.helper.XmlHelper;
 import ir.hamyiar.newstb.net.NewsConnection;
 import ir.hamyiar.newstb.repository.NewsRepository;
-import org.springframework.beans.factory.annotation.Autowire;
+import ir.hamyiar.newstb.telegram.Bot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +22,9 @@ public class IrnaRSSService {
 
     @Autowired
     private NewsRepository newsRepository;
+
+    @Autowired
+    private Bot bot;
 
     @PostConstruct
     public void process() {
@@ -42,6 +45,8 @@ public class IrnaRSSService {
                 // Store News Entity in Database
                 newsRepository.save(news);
                 // TODO: Send data to telegram channel
+                String response = bot.sendImagePostToChannel(news);
+                System.out.println(response);
             }
         }
     }
