@@ -75,6 +75,7 @@ public class XmlHelper {
         news.setNewsTitle(newsTitle);
         news.setNewsLink(newsLink);
         news.setNewsDescription(newsDescription);
+        news.setNewsImageUrl(newsImageUrl);
         news.setPublishDate(publishDate);
         return news;
     }
