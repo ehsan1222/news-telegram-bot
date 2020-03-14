@@ -1,6 +1,5 @@
 package ir.hamyiar.newstb;
 
-import ir.hamyiar.newstb.services.IrnaRSSService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;

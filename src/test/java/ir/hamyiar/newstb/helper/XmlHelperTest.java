@@ -4,6 +4,14 @@ import ir.hamyiar.newstb.dao.News;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
@@ -18,14 +26,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Date;
 
+@RunWith( SpringRunner.class )
+@SpringBootTest(classes = {XmlHelper.class})
 public class XmlHelperTest {
 
+    @Autowired
     private XmlHelper xmlHelper;
 
-    @Before
-    public void startUp() {
-        xmlHelper = new XmlHelper();
-    }
 
     @Test
     public void createNewsItem() throws ParserConfigurationException, IOException, SAXException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
