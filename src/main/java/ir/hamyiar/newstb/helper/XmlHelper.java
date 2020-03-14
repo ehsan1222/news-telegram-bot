@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class XmlHelper {
 
@@ -83,6 +84,7 @@ public class XmlHelper {
 
     private Date convertStringToDate(String newsTextPubDate) throws ParseException {
         DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         return dateFormat.parse(newsTextPubDate);
     }
 
