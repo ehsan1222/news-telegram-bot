@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Entity
 @Table(name = "news")
@@ -26,4 +27,6 @@ public class News {
     private String newsLink;
     @Column(name = "news_description")
     private String newsDescription;
+    @Column(name = "publish_date")
+    private Date publishDate;
 }
