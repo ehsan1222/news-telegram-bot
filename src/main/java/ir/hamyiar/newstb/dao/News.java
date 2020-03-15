@@ -25,7 +25,7 @@ public class News {
     private String newsTitle;
     @Column(name = "news_link")
     private String newsLink;
-    @Column(name = "news_description")
+    @Column(name = "news_description", length = 2048)
     private String newsDescription;
     @Column(name = "news_image_url")
     private String newsImageUrl;
