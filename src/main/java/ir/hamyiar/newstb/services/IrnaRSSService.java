@@ -3,12 +3,10 @@ package ir.hamyiar.newstb.services;
 import ir.hamyiar.newstb.dao.News;
 import ir.hamyiar.newstb.helper.XmlHelper;
 import ir.hamyiar.newstb.net.NewsConnection;
-import ir.hamyiar.newstb.repository.NewsRepository;
 import ir.hamyiar.newstb.telegram.Bot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.List;
 
@@ -48,11 +46,8 @@ public class IrnaRSSService {
                 newsService.saveNews(news);
                 // TODO: Send data to telegram channel
                 bot.sendImagePostToChannel(news);
-            } else  {
-                System.out.println("yooooo");
             }
         }
-        System.out.println("---*-*-*-*-*-*-*-*-*");
     }
 
     public void addPreIdToNewsId(List<News> newsList) {
