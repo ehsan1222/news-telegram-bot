@@ -22,7 +22,7 @@ public class IrnaRSSService {
     private XmlHelper xmlHelper;
 
     @Autowired
-    private NewsRepository newsRepository;
+    private NewsService newsService;
 
     @Autowired
     private Bot bot;
@@ -43,9 +43,9 @@ public class IrnaRSSService {
 
     private void checkNewsInDatabase(List<News> todayNews) {
         for (News news : todayNews) {
-            if (!newsRepository.findById(news.getId()).isPresent()) {
+            if (!newsService.getNews(news.getId()).isPresent()) {
                 // Store News Entity in Database
-                newsRepository.save(news);
+                newsService.saveNews(news);
                 // TODO: Send data to telegram channel
                 bot.sendImagePostToChannel(news);
             } else  {
