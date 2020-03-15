@@ -31,9 +31,6 @@ public class Bot {
                          "[لینک خبر](" + news.getNewsLink() + ")\n\n" +
                          "[" + news.getSiteTitle() + "](" + news.getSiteAddress() + ")";
 
-        System.out.println(botToken);
-        System.out.println(channelId);
-        System.out.println(news.getNewsImageUrl());
         String telegramUrl = String.format(
                 photoPostUrl,
                 botToken,
