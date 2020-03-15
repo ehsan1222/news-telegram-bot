@@ -6,23 +6,33 @@ import java.net.URL;
 public class NewsConnection {
 
     public static String getXmlRSS(String rssPath) {
+        StringBuilder stringBuilder = new StringBuilder();
+        InputStream inputStream = null;
         try {
             // Get stream data from site
             URL url = new URL(rssPath);
-            InputStream inputStream = url.openStream();
+            inputStream = url.openStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             // Parse RSS Data
-            StringBuilder stringBuilder = new StringBuilder();
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line).append("\n");
             }
-            return stringBuilder.toString();
+            bufferedReader.close();
+            inputStreamReader.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return null;
+        return stringBuilder.toString();
     }
 }
