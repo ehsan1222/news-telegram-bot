@@ -21,13 +21,13 @@ public class News {
     private String siteTitle;
     @Column(name = "site_address")
     private String siteAddress;
-    @Column(name = "news_title")
+    @Column(name = "news_title", columnDefinition = "TEXT")
     private String newsTitle;
-    @Column(name = "news_link")
+    @Column(name = "news_link", columnDefinition = "TEXT")
     private String newsLink;
-    @Column(name = "news_description", length = 2048)
+    @Column(name = "news_description", columnDefinition = "TEXT")
     private String newsDescription;
-    @Column(name = "news_image_url")
+    @Column(name = "news_image_url", columnDefinition = "TEXT")
     private String newsImageUrl;
     @Column(name = "publish_date")
     private Date publishDate;
